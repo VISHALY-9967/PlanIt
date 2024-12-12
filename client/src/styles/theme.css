@@ -1,0 +1,20 @@
+:root {
+  /* Primary Colors */
+  --primary-color: #2D6CDF;      /* Royal Blue - Main brand color */
+  --secondary-color: #6C63FF;    /* Purple - Accent color */
+  
+  /* Neutral Colors */
+  --background-light: #F8FAFC;
+  --background-dark: #1E293B;
+  --text-color: #334155;
+  
+  /* Sector-specific Colors */
+  --medical-color: #38BDF8;      /* Light Blue for Medical Tourism */
+  --mice-color: #818CF8;         /* Indigo for MICE */
+  --wedding-color: #FB7185;      /* Pink for Weddings */
+  
+  /* Status Colors */
+  --success-color: #22C55E;
+  --error-color: #EF4444;
+  --warning-color: #F59E0B;
+} 

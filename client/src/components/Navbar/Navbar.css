@@ -1,0 +1,273 @@
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 8%;
+  background-color: white;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  position: relative;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 60px;
+  /* z-index: 1; */
+  border-radius: 10px;
+  transition: box-shadow 0.3s ease-in-out;
+}
+
+.navbar:hover {
+  box-shadow: 0 8px 20px rgba(173, 216, 230, 0.5);
+}
+
+.nav-logo {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #0984e3;
+  text-decoration: none;
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease, text-shadow 0.3s ease;
+}
+
+.nav-logo:hover {
+  transform: translateY(-2px);
+  text-shadow: 3px 3px 7px rgba(0, 0, 0, 0.4);
+}
+
+.nav-links{
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  height: 100%;
+}
+
+.nav-links a{
+  text-decoration: none;
+  color: #233e46;
+  font-weight: 600;
+  font-size: 1.2rem;
+  transition: color 0.3s ease;
+  padding: 0.5rem 1rem;
+  border-radius: 50px;
+}
+
+.nav-links a:hover {
+  color: #158abc;
+  background-color: #f8f9fa;
+}
+
+.navbar::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background: linear-gradient(to right, #add8e6, #87ceeb); /* Light blue gradient */
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.navbar:hover::after {
+  opacity: 1;
+}
+
+.services-dropdown {
+  position: relative;
+}
+
+.services-btn {
+  text-decoration: none;
+  color: #2d525c;
+  font-weight: 600;
+  font-size: 1.2rem;
+  transition: color 0.3s ease;
+  padding: 0.5rem 1rem;
+  border-radius: 50px;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.services-btn:hover {
+  color: #158abc;
+  background-color: #f8f9fa;
+}
+
+.services-dropdown .dropdown-menu {
+  position: absolute;
+  top: calc(100% + 15px);
+  right: 30%;
+  transform: translateX(-50%);
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+  padding: 0.5rem;
+  min-width: 200px;
+  z-index: 1001;
+}
+
+.services-dropdown .dropdown-menu a {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 0.75rem 1rem;
+  color: #2d3436;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+}
+
+.services-dropdown .dropdown-menu a:hover {
+  background-color: #f8f9fa;
+  color: #158abc;
+}
+
+.services-dropdown .dropdown-menu i {
+  width: 20px;
+  text-align: center;
+}
+
+.profile-dropdown {
+  position: relative;
+}
+
+.profile-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+}
+
+.profile-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #0984e3;
+}
+
+.dropdown-menu {
+  position: absolute;
+  top: calc(100% + 10px);
+  right: 0;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+  padding: 0.5rem;
+  min-width: 200px;
+  z-index: 1001;
+}
+
+.dropdown-menu a {
+  display: block;
+  padding: 0.75rem 1rem;
+  color: #2d3436;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+}
+
+.dropdown-menu a:hover {
+  background-color: #f8f9fa;
+}
+
+.logout-btn {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  text-align: left;
+  background: none;
+  border: none;
+  color: #e74c3c;
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+.logout-btn:hover {
+  background-color: #fff5f5;
+}
+
+.auth-buttons {
+  display: flex;
+  gap: 1rem;
+}
+
+.login-btn, .signup-btn {
+  padding: 0.5rem 1.5rem;
+  border-radius: 8px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.login-btn {
+  color: #1e1f20;
+  /* border: 1.5px solid #000000; */
+}
+
+.login-btn:hover {
+  background-color: #0984e3;
+  color: white;
+}
+
+.signup-btn {
+  background-color: #0984e3;
+  color: white;
+}
+
+.signup-btn:hover {
+  background-color: #0873c4;
+}
+
+@media (max-width: 768px) {
+  .navbar {
+    padding: 1rem 5%;
+  }
+
+  .nav-links {
+    gap: 1rem;
+  }
+}
+
+@keyframes dropdownFade {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.dropdown-menu {
+  animation: dropdownFade 0.2s ease-out;
+}
+
+section {
+  width: 100%;
+  max-width: 100%;
+  margin: 0;
+  padding: 0 8%;
+  box-sizing: border-box;
+}
+
+.hero {
+  min-height: 100vh;
+  width: 100%;
+  max-width: 100%;
+  margin: 0;
+  padding: 0 8%;
+  box-sizing: border-box;
+}
+
+@media (max-width: 768px) {
+  .navbar {
+    padding: 1rem 5%;
+  }
+
+  section,
+  .hero {
+    padding: 0 5%;
+  }
+
+  .nav-links {
+    gap: 1rem;
+  }
+}

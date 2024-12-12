@@ -1,0 +1,80 @@
+.dashboard {
+  padding: 2rem 8%;
+  margin-top: 80px;
+}
+
+.dashboard-header {
+  margin-bottom: 2rem;
+}
+
+.dashboard-header h1 {
+  font-size: 2.5rem;
+  color: #2d3436;
+  margin-bottom: 0.5rem;
+}
+
+.dashboard-header p {
+  color: #636e72;
+  font-size: 1.1rem;
+}
+
+.dashboard-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+.dashboard-card {
+  background-color: white;
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.dashboard-card h2 {
+  color: #2d3436;
+  margin-bottom: 1rem;
+  font-size: 1.5rem;
+}
+
+.dashboard-card p {
+  color: #636e72;
+  margin-bottom: 1.5rem;
+}
+
+.booking-stats {
+  display: flex;
+  justify-content: space-between;
+  color: #0984e3;
+  font-weight: 600;
+}
+
+.edit-profile-btn, .view-all-btn {
+  background-color: #0984e3;
+  color: white;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background-color 0.3s ease;
+}
+
+.edit-profile-btn:hover, .view-all-btn:hover {
+  background-color: #0873c4;
+}
+
+.saved-count {
+  color: #0984e3;
+  font-weight: 600;
+}
+
+@media (max-width: 768px) {
+  .dashboard {
+    padding: 2rem 5%;
+  }
+
+  .dashboard-header h1 {
+    font-size: 2rem;
+  }
+} 
