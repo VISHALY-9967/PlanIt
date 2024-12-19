@@ -1,15 +1,22 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { motion } from 'framer-motion';
 import './Navbar.css';
+import Login from '../Auth/Login';
+import Contact from '../LandingPage/sections/Contact';
+
+import SignUp from '../Auth/SignUp';
 
 const Navbar = () => {
+  const [isLoginModalOpen, setIsLoginModalOpen] = useState(false);
+  const [isSignUpModalOpen, setIsSignUpModalOpen] = useState(false);
   const [isProfileOpen, setIsProfileOpen] = useState(false);
   const [isServicesOpen, setIsServicesOpen] = useState(false);
-  const [isLoggedIn] = useState(false); // Set to true for testing
+  const [isLoggedIn] = useState(true); 
   const dropdownRef = useRef(null);
   const servicesDropdownRef = useRef(null);
   const location = useLocation();
+  // const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isContactModalOpen, setIsContactModalOpen] = useState(false);
 
   // Close dropdown when clicking outside
   useEffect(() => {
@@ -33,94 +40,151 @@ const Navbar = () => {
   }, [location]);
 
   return (
-    <nav className="navbar">
-      <Link to="/" className="nav-logo">
-        PlanIt
-      </Link>
+    <>
+      <nav className="navbar">
+        <Link to="/" className="nav-logo">
+          PlanIt
+        </Link>
 
-      <div className="nav-links">
-        <div className="services-dropdown" ref={servicesDropdownRef}>
-          <button 
-            className="services-btn"
-            onClick={() => setIsServicesOpen(!isServicesOpen)}
-          >
-            Services
+        <div className="search-container">
+          <input 
+            type="text" 
+            className="search-input" 
+            placeholder="Search..."
+          />
+          <button className="search-button">
+            <i className="fas fa-search"></i>
           </button>
-          
-          {isServicesOpen && (
-            <motion.div 
-              className="dropdown-menu"
-              initial={{ opacity: 0, y: -20 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -20 }}
-            >
-              <Link to="/services/mice">
-                <i className="fas fa-building"></i> MICE
-              </Link>
-              <Link to="/services/medical">
-                <i className="fas fa-hospital"></i> Medical
-              </Link>
-              <Link to="/services/weddings">
-                <i className="fas fa-rings-wedding"></i> Weddings
-              </Link>
-            </motion.div>
-          )}
         </div>
-        
-        <Link to="/about">About</Link>
-        <Link to="/contact">Contact</Link>
-        
-        {isLoggedIn ? (
-          <div className="profile-dropdown" ref={dropdownRef}>
+
+        <div className="nav-links">
+          <div className="services-dropdown" ref={servicesDropdownRef}>
             <button 
-              className="profile-btn"
-              onClick={() => setIsProfileOpen(!isProfileOpen)}
+              className="services-btn"
+              onClick={() => setIsServicesOpen(!isServicesOpen)}
             >
-              <motion.div
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-              >
-                <img 
-                  src=""
-                  alt="" 
-                  className="profile-avatar"
-                />
-              </motion.div>
+              Services
             </button>
             
-            {isProfileOpen && (
-              <motion.div 
+            {isServicesOpen && (
+              <div 
                 className="dropdown-menu"
-                initial={{ opacity: 0, y: -20 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: -20 }}
               >
-                <Link to="/dashboard">
-                  <i className="fas fa-columns"></i> Dashboard
+                <Link to="/services/mice">
+                  <i className="fas fa-building"></i> MICE
                 </Link>
-                <Link to="/profile">
-                  <i className="fas fa-user"></i> My Profile
+                <Link to="/services/medical">
+                  <i className="fas fa-hospital"></i> Medical
                 </Link>
-                <Link to="/bookings">
-                  <i className="fas fa-calendar"></i> My Bookings
+                <Link to="/services/weddings">
+                  <i className="fas fa-rings-wedding"></i> Weddings
                 </Link>
-                <Link to="/settings">
-                  <i className="fas fa-cog"></i> Settings
-                </Link>
-                <button className="logout-btn">
-                  <i className="fas fa-sign-out-alt"></i> Logout
-                </button>
-              </motion.div>
+              </div>
             )}
           </div>
-        ) : (
-          <div className="auth-buttons">
-            <Link to="/login" className="login-btn">Login</Link>
-            <Link to="/signup" className="signup-btn">Sign Up</Link>
+          
+          <Link to="/about">About</Link>
+          <button 
+            className="nav-links a"
+            onClick={() => setIsContactModalOpen(true)}
+            style={{ border: 'none', background: 'none', cursor: 'pointer' }}
+          >
+            Contact
+          </button>
+          
+          {isLoggedIn ? (
+            <div className="profile-dropdown" ref={dropdownRef}>
+              <button 
+                className="profile-btn"
+                onClick={() => setIsProfileOpen(!isProfileOpen)}
+              >
+                <div
+                  className="profile-avatar"
+                >
+                  <img 
+                    src=""
+                    alt="" 
+                  />
+                </div>
+              </button>
+              
+              {isProfileOpen && (
+                <div 
+                  className="dropdown-menu"
+                >
+                  <Link to="/dashboard">
+                    <i className="fas fa-columns"></i> Dashboard
+                  </Link>
+                  <Link to="/bookings">
+                    <i className="fas fa-calendar"></i> My Bookings
+                  </Link>
+                  <button className="logout-btn">
+                    <i className="fas fa-sign-out-alt"></i> Logout
+                  </button>
+                </div>
+              )}
+            </div>
+          ) : (
+            <div className="auth-buttons">
+              <button 
+                onClick={() => setIsLoginModalOpen(true)} 
+                className="login-btn"
+              >
+                Login
+              </button>
+              <button 
+                onClick={() => setIsSignUpModalOpen(true)} 
+                className="signup-btn"
+              >
+                Sign Up
+              </button>
+            </div>
+          )}
+        </div>
+      </nav>
+
+      {isContactModalOpen && (
+        <div className="modal-overlay" onClick={() => setIsContactModalOpen(false)}>
+          <div className="modal-content" onClick={e => e.stopPropagation()}>
+            <button 
+              className="modal-close"
+              onClick={() => setIsContactModalOpen(false)}
+            >
+              ×
+            </button>
+            <Contact />
           </div>
-        )}
-      </div>
-    </nav>
+        </div>
+      )}
+
+      {isSignUpModalOpen && (
+        <div className="modal-overlay" onClick={() => setIsSignUpModalOpen(false)}>
+          <div className="modal-content" onClick={e => e.stopPropagation()}>
+            <button 
+              className="modal-close"
+              onClick={() => setIsSignUpModalOpen(false)}
+            >
+              
+            </button>
+            <SignUp onClose={() => setIsSignUpModalOpen(false)} />
+          </div>
+        </div>
+      )}
+
+      {isLoginModalOpen && (
+        <div className="modal-overlay" onClick={() => setIsLoginModalOpen(false)}>
+          <div className="modal-content" onClick={e => e.stopPropagation()}>
+            <button 
+              className="modal-close"
+              onClick={() => setIsLoginModalOpen(false)}
+            >
+              
+            </button>
+            <Login onClose={() => setIsLoginModalOpen(false)} />
+          </div>
+        </div>
+      )}
+    </>
   );
 };
 

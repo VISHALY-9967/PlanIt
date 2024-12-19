@@ -1,0 +1,350 @@
+.auth-container {
+  width: 100%;
+  max-width: 480px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.auth-form-container {
+  background: white;
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.auth-form-container h2 {
+  text-align: center;
+  margin-bottom: 2rem;
+  color: #333;
+}
+
+.auth-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.form-group input,
+.form-group select {
+  padding: 0.75rem;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 1rem;
+  transition: border-color 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+  outline: none;
+  border-color: #007bff;
+}
+
+.form-group input.error,
+.form-group select.error {
+  border-color: #dc3545;
+}
+
+.error-message {
+  color: #dc3545;
+  font-size: 0.875rem;
+}
+
+.auth-button {
+  padding: 0.75rem;
+  border: none;
+  border-radius: 4px;
+  background-color: #007bff;
+  color: white;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.auth-button:hover {
+  background-color: #0056b3;
+}
+
+.auth-button.secondary {
+  background-color: #6c757d;
+}
+
+.auth-button.secondary:hover {
+  background-color: #5a6268;
+}
+
+.button-group {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+  .auth-container {
+    padding: 1rem;
+  }
+
+  .auth-form-container {
+    padding: 1.5rem;
+  }
+
+  .button-group {
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 480px) {
+  .auth-form-container {
+    padding: 1rem;
+  }
+
+  .form-group input,
+  .form-group select,
+  .auth-button {
+    padding: 0.625rem;
+  }
+}
+
+.password-strength {
+  margin-top: 0.5rem;
+  font-size: 0.875rem;
+}
+
+.strength-item {
+  color: #dc3545;
+  margin: 0.25rem 0;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.strength-item::before {
+  content: '×';
+  font-weight: bold;
+}
+
+.strength-item.valid {
+  color: #28a745;
+}
+
+.strength-item.valid::before {
+  content: '✓';
+}
+
+.terms-group {
+  margin: 1rem 0;
+}
+
+.checkbox-label {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.checkbox-label input[type="checkbox"] {
+  width: auto;
+  margin-right: 0.5rem;
+}
+
+.checkbox-label a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+.checkbox-label a:hover {
+  text-decoration: underline;
+}
+
+/* Phone input customization */
+.react-phone-input-2 {
+  width: 100% !important;
+}
+
+.react-phone-input-2 .form-control {
+  width: 100% !important;
+  height: 42px !important;
+  font-size: 1rem !important;
+}
+
+/* Responsive adjustments */
+@media (max-width: 480px) {
+  .auth-form-container {
+    padding: 1rem;
+  }
+
+  .form-group label {
+    font-size: 0.9rem;
+  }
+
+  .strength-item {
+    font-size: 0.8rem;
+  }
+
+  .checkbox-label {
+    font-size: 0.9rem;
+  }
+}
+
+.auth-card {
+  background: white;
+  padding: 2.5rem;
+  border-radius: 12px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+.auth-header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.auth-header h2 {
+  margin-bottom: 0.5rem;
+  color: #2d3748;
+  font-size: 1.75rem;
+}
+
+.auth-header p {
+  color: #718096;
+  font-size: 0.875rem;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  font-size: 0.875rem;
+  transition: all 0.3s ease;
+}
+
+.form-group input:focus {
+  border-color: #4299e1;
+  box-shadow: 0 0 0 3px rgba(66, 153, 225, 0.1);
+}
+
+.password-requirements {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  margin-top: 0.5rem;
+}
+
+.requirement {
+  font-size: 0.75rem;
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+  background: #edf2f7;
+  color: #718096;
+}
+
+.requirement.valid {
+  background: #c6f6d5;
+  color: #2f855a;
+}
+
+.auth-button {
+  width: 100%;
+  padding: 0.75rem;
+  background: #4299e1;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  margin-top: 1rem;
+}
+
+.auth-button:hover {
+  background: #3182ce;
+}
+
+.auth-footer {
+  text-align: center;
+  margin-top: 1.5rem;
+  font-size: 0.875rem;
+  color: #718096;
+}
+
+.auth-footer a {
+  color: #4299e1;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.auth-footer a:hover {
+  text-decoration: underline;
+}
+
+.phone-input-container {
+  width: 100% !important;
+}
+
+/* Update phone input styles to match the new design */
+.react-phone-input-2 .form-control {
+  width: 100% !important;
+  height: 42px !important;
+  border-radius: 8px !important;
+  border: 1px solid #e2e8f0 !important;
+} 
+
+.input-hint {
+  color: #718096;
+  font-size: 0.75rem;
+  margin-top: 0.25rem;
+  display: block;
+}
+
+input[type="tel"] {
+  letter-spacing: 0.5px;
+}
+
+/* Make inputs more touch-friendly on mobile */
+@media (max-width: 480px) {
+  .form-group input {
+    padding: 0.875rem 1rem;
+    font-size: 1rem;
+  }
+  
+  .requirement {
+    padding: 0.375rem 0.75rem;
+    font-size: 0.8125rem;
+  }
+  
+  .auth-card {
+    padding: 1.5rem;
+  }
+}
+
+/* Improve focus visibility for accessibility */
+.form-group input:focus {
+  border-color: #4299e1;
+  box-shadow: 0 0 0 3px rgba(66, 153, 225, 0.2);
+  outline: none;
+}
+
+/* Add subtle hover effect on inputs */
+.form-group input:hover:not(:focus) {
+  border-color: #cbd5e0;
+}
+
+/* Remove number input spinners */
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type="number"] {
+  -webkit-appearance: textfield;
+  -moz-appearance: textfield;
+  appearance: textfield;
+}

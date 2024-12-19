@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
+import '../LandingPage.css';
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -18,8 +19,7 @@ const Contact = () => {
     <section className="contact" id="contact">
       <motion.h2
         initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
+        animate={{ opacity: 1, y: 0 }}
         className="section-title"
       >
         Get in Touch
@@ -29,30 +29,9 @@ const Contact = () => {
         className="contact-form"
         onSubmit={handleSubmit}
         initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
+        animate={{ opacity: 1, y: 0 }}
       >
-        <input
-          type="text"
-          placeholder="Your Name"
-          value={formData.name}
-          onChange={(e) => setFormData({...formData, name: e.target.value})}
-          required
-        />
-        <input
-          type="email"
-          placeholder="Your Email"
-          value={formData.email}
-          onChange={(e) => setFormData({...formData, email: e.target.value})}
-          required
-        />
-        <textarea
-          placeholder="Your Message"
-          value={formData.message}
-          onChange={(e) => setFormData({...formData, message: e.target.value})}
-          required
-        ></textarea>
-        <button type="submit" className="primary-btn">Send Message</button>
+        {/* ... existing form content ... */}
       </motion.form>
     </section>
   );
